@@ -1,0 +1,18 @@
+{
+  "name": "bpm-tempo-toolkit",
+  "version": "1.0.0",
+  "description": "Dependency-free BPM conversions, tap-tempo logic, and reusable reference data.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://tapbpmnow.com/",
+  "keywords": ["bpm", "tempo", "tap-tempo", "music", "audio"],
+  "exports": {
+    ".": "./src/bpm-conversions.js",
+    "./tap-tempo": "./src/tap-tempo.js"
+  },
+  "files": ["src", "data", "examples", "README.md", "LICENSE"],
+  "scripts": {
+    "generate:data": "node scripts/generate-reference.mjs",
+    "test": "node test.mjs"
+  }
+}
