@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tap Tempo Demo</title>
+<button id="tap" type="button">Tap</button>
+<button id="reset" type="button">Reset</button>
+<output id="result">Tap twice to begin.</output>
+<script type="module">
+  import { TapTempo } from '../src/tap-tempo.js';
+  const tapper = new TapTempo();
+  const result = document.querySelector('#result');
+  document.querySelector('#tap').addEventListener('click', () => {
+    const reading = tapper.tap();
+    result.textContent = reading.averageBpm === null
+      ? 'Tap again.'
+      : `${reading.averageBpm.toFixed(1)} BPM average`;
+  });
+  document.querySelector('#reset').addEventListener('click', () => {
+    tapper.reset();
+    result.textContent = 'Tap twice to begin.';
+  });
+</script>
+</html>
